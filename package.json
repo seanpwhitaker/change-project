@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "rimraf ./build && tsc",
+    "getChange": "ts-node scripts/getChange.ts",
     "start": "functions-framework --source=build/ --target=validateTemperature",
     "watch": "concurrently \"tsc -w\" \"nodemon --watch ./build/ --exec npm run start\"",
     "test": "jest"
