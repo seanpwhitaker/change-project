@@ -12,7 +12,7 @@ const { provided, total } = argv
 
 let totalChange: Change;
 try {
-    totalChange = getChange(total, provided);
+    totalChange = getChange({provided, total});
 } catch (error) {
     console.log(error);
     process.exit(1);

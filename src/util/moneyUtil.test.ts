@@ -18,7 +18,7 @@ const shouldBeEmpytyTotal: Change = {
 describe(`We're going to test total change!`, () => {
 
     it('should be 0s!!!', () => {
-        expect(getChange(200, 200)).toEqual(shouldBeEmpytyTotal)
+        expect(getChange({total:200, provided:200})).toEqual(shouldBeEmpytyTotal)
     });
 
     it('should be 5 hundreds, 2 dimes, and 3 pennies!!!', () => {
@@ -35,11 +35,11 @@ describe(`We're going to test total change!`, () => {
             },
             coins: { dimes: 2, nickles: 0, pennies: 3, quarters: 0 }
         }
-        expect(getChange(99.77, 600)).toEqual(shouldBeTotal)
+        expect(getChange({total:99.77, provided:600})).toEqual(shouldBeTotal)
     });
 
     it('should throw an error!', () => {
-        expect(() => { getChange(400, 300) }).toThrow('Demand they pay full price!!!');
+        expect(() => { getChange({total:400, provided:300}) }).toThrow('Demand they pay full price!!!');
     })
 })
 

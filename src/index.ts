@@ -1,16 +1,16 @@
 import { HttpFunction } from "@google-cloud/functions-framework";
+import { Change, ChangeRequest } from "./models/money";
+import { getChange } from "./util/moneyUtil";
 
 export const validateTemperature: HttpFunction = async (req, res) => {
+    const { provided, total } = req.body as ChangeRequest;
+
     try {
-        if (req.body.temp < 100) {
-            res.status(200).send("Temperature OK");
-        } else {
-            console.log('too hot');
-            res.status(200).send("Too hot");
-        }
+        const totalChange: Change = getChange({ provided, total });
+        res.status(200).send(totalChange);
     } catch (error) {
-        //return an error
-        console.log("got error: ", error);
-        res.status(500).send(error);
+        console.log(error);
+        res.status(500).send({error});
     }
+
 };

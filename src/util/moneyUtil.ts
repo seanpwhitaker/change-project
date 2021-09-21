@@ -1,4 +1,4 @@
-import { Bills, Change, Coins } from "../models/money";
+import { Bills, Change, ChangeRequest, Coins } from "../models/money";
 
 // stanard bills, excluding $2 
 // fifties, twenties, tens, fives, dollars  
@@ -60,7 +60,9 @@ export const getBills = (change: number): Bills => {
 }
 
 // get the total change
-export const getChange = (total: number, provided: number): Change => {
+export const getChange = (changeRequest:ChangeRequest): Change => {
+    const {provided, total} = changeRequest;
+
     if (provided < total) {
         throw ('Demand they pay full price!!!');
     }

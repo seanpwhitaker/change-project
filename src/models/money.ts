@@ -19,3 +19,8 @@ export interface Coins {
     pennies: number;
     quarters: number;
 }
+
+export interface ChangeRequest {
+    provided: number;
+    total: number;
+}
