@@ -19,6 +19,6 @@ Start the local server with `yarn watch` or `npm run watch`
 Use the the postman collection for examples of a good and error request
 
 # Asummptions
-Assumes the drawer has all the possible change
-Assumes we are returning change in an optimal format, which would be greatest denominations to least
-Assumes we only know the price 
+* Assumes the drawer has all the possible change
+* Assumes we are returning change in an optimal format, which would be greatest denominations to least
+* Assumes we only know the price 
